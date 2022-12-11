@@ -10,8 +10,11 @@ Since dataset(AMASS, REPL, SMPL-H, GloVe pretrained words) are huge, it was impo
 ## To see our results
 If you want to see our results, you can run below commands in /posescript/src/text2pose.
 
+```
   bash test_script.sh -c gen_glovebigru_vocA1H1_dataA1 (for A1)
   bash test_script.sh -c gen_glovebigru_vocA1H1_dataH1 (for H1)
+ ```
+ 
   
 We saved our final model so if you can type the command, you can see the results we made.
 
