@@ -16,7 +16,7 @@ If you want to see our results, you can run below commands in /posescript/src/te
  ```
  
   
-We saved our final model so if you can type the command, you can see the results we made.
+We saved our results of final model so if you type the command, you can see the results we made.
 
 
 ## Extra Demo Results ##
