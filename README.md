@@ -3,9 +3,18 @@ This repository is team 12's term project work, about replicating PoseScript: 3D
 We adopted frameworks of the original paper, and implemented core algorithms by our own.
 
 ## Setup & Running
-Please refer to setup & Running process of [here](https://github.com/naver/posescript#snake-create-python-environment).
-Few environment setups are required(python, torch, torchtext, nltk, etc), and downloading dataset is also required.
-Since dataset(AMASS, REPL, SMPL-H, GloVe pretrained words) are huge, it was impossible to upload at repo.
+Please refer for specific setup & Running process of [here](https://github.com/naver/posescript#snake-create-python-environment).
+
+To setup python environment, type
+
+```
+pip install -r requirements.txt
+python setup.py develop
+```
+at the root directory.
+
+After setting python environment, downloading dataset is also required.
+Since dataset(AMASS, REPL, SMPL-H, GloVe pretrained words) are huge, it was impossible to upload at repo. Please follow above link to download.
 
 ## To see our results
 If you want to see our results, you can run below commands in /posescript/src/text2pose.
