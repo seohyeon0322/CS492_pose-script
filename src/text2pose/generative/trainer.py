@@ -393,7 +393,7 @@ class Trainer():
             # compute or load results for the given run & caption
             for cap_ind in range(nb_caps):
                 filename_res = get_res_file(cap_ind)
-                if os.path.isfilename(filename_res):
+                if os.path.isfile(filename_res):
                     cap_results = load_from_file(filename_res)
                 else:
                     d = PoseScript(version=self.args.dataset, split=self.args.split, text_encoder_name=text_encoder_name, caption_index=cap_ind, cache=True)
@@ -408,7 +408,7 @@ class Trainer():
             filename_res = os.path.join(os.path.dirname(self.args.model_path), f"result_{self.args.split}_{self.args.dataset}_X{fid_version[0]}-{fid_version[1]}X_{suffix}.txt")
             # compute or load results
             if os.path.isfile(filename_res):
-                results = load_from_file
+                results = load_from_file(filename_res)
 
             else:
                 model, text_encoder_name = load_model(self.arg.model_path, device)
