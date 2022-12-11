@@ -22,8 +22,8 @@ def c2c(tensor):
 
 
 imw, imh = 1600, 1600
-mv = MeshViewer(width=imw, height=imh, use_offscreen=True)
 
+mv = MeshViewer(width=imw, height=imh, use_offscreen=True)
 
 def image_from_body_vertices(body_vertices, faces, viewpoints=[[]], color='grey'):
     body_mesh = trimesh.Trimesh(vertices=body_vertices, faces=faces, vertex_colors=np.tile(COLORS[color]+[1.] if isinstance(color,str) else color+[1.], (6890, 1)))
@@ -38,9 +38,11 @@ def image_from_body_vertices(body_vertices, faces, viewpoints=[[]], color='grey'
         else: # initial viewpoint
             b = body_mesh
         # produce the image
+        mv = MeshViewer(width=imw, height=imh, use_offscreen=True)
         mv.set_static_meshes([b])
         body_image = mv.render(render_wireframe=False)
         imgs.append(np.array(Image.fromarray(body_image)))
+        # mv.viewer.delete()
     return imgs
 
 

@@ -4,7 +4,7 @@ import numpy as np
 
 import text2pose.config as config
 import text2pose.utils as utils
-from text2pose.encoders import PoseEncoder
+from text2pose.our_encoders import PoseEncoder
 
 class FID(nn.Module):
     
@@ -19,7 +19,7 @@ class FID(nn.Module):
         return f"FID_{self.version[0]}_seed{self.version[1]}"
 
     def _load_model(self):
-        ckpt = torch.load(config.shortname_2_model_path[self.version[0]].format(seed=self.version[1]), 'cpu')
+        ckpt = torch.load(config.shortname_2_model_path[self.version[0]].format(seed=self.version[1]), 'cuda')
         self.model = PoseEncoder(latentD=ckpt['args'].latentD, role="retrieval")
         self.model.load_state_dict({k[len('pose_encoder.encoder.'):]: v for k,v in ckpt['model'].items() if k.startswith('pose_encoder.encoder.')}, strict=False)
         self.model.eval()

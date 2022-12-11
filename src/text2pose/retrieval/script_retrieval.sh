@@ -40,7 +40,7 @@ args=(
     --latentD 512
     --lr_scheduler "stepLR"
     --lr 0.0002 --lr_step 20 --lr_gamma 0.5
-    --batch_size 32
+    --batch_size 128
     --seed ${run_id_seed}
 )
 
@@ -83,7 +83,7 @@ model_path="${model_dir_path}/best_model.pth"
 
 if [[ "$action" == *"train"* ]]; then
 
-    python retrieval/train_retrieval.py --epochs 500 "${args[@]}" "${args_genconf[@]}"
+    python retrieval/our_train_eval_main.py --mode 'train' --epochs 500 "${args[@]}" "${args_genconf[@]}"
     
     # store the shortname and path to the retrieval model in config files
     echo "${config}    ${model_path}" >> shortname_2_model_path.txt
@@ -95,8 +95,7 @@ fi
 
 if [[ "$action" == *"eval"* ]]; then
 
-    python retrieval/evaluate_retrieval.py --model_path $model_path \
+    python retrieval/our_train_eval_main.py --mode 'eval' --model_path $model_path \
     --dataset $dataset --split 'test' \
     "${args_geneval[@]}"
 fi
-

@@ -53,7 +53,13 @@ def get_args_parser():
     parser.add_argument('--num_workers', default=8, type=int, help='number of workers for the dataloader')
     parser.add_argument('--saving_ckpt_step', default=500, type=int, help='number of epochs before creating a persistent checkpoint')    
     parser.add_argument('--log_step', default=20, type=int, help='number of batchs before printing and recording the logs')
-
+    parser.add_argument('--mode', default="train", type=str, help='number of batchs before printing and recording the logs')
+    parser.add_argument('--model_path', type=str, help='Path to the model (or one of the models, if averaging over several runs; assuming that paths only differ in the seed value).')
+    parser.add_argument('--average_over_runs', action="store_true", help="If evaluating different runs of the same model and aggregating the results.")
+    # parser.add_argument('--dataset', default='posescript-H1', type=str,  help="Evaluation dataset.")
+    # parser.add_argument('--fid', type=str, help='Version of the fid to used for evaluation.')
+    parser.add_argument('--split', default="test", type=str, help="Split to evaluate.")
+    
     return parser
 
 

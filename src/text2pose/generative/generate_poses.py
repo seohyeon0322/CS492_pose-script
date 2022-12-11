@@ -15,7 +15,7 @@ import numpy as np
 import text2pose.config as config
 from text2pose.data import PoseScript
 from text2pose.vocab import Vocabulary # needed
-from text2pose.generative.evaluate_generative import load_model
+from text2pose.generative.trainer import load_model
 
 
 parser = argparse.ArgumentParser(description='Parameters to generate poses corresponding to each caption.')
@@ -44,7 +44,7 @@ np.random.seed(seed)
 
 # load model
 model, text_encoder_name = load_model(model_path, device)
-dataset_version = torch.load(model_path, 'cpu')['args'].dataset
+dataset_version = torch.load(model_path, 'cuda')['args'].dataset
 
 # create saving directory
 if not os.path.isdir(os.path.dirname(save_path)):

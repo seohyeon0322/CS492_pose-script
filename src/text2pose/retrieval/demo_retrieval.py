@@ -17,7 +17,7 @@ from human_body_prior.body_model.body_model import BodyModel
 import text2pose.config as config
 from text2pose.vocab import Vocabulary # needed
 from text2pose.data import PoseScript
-from text2pose.retrieval.evaluate_retrieval import load_model
+from text2pose.retrieval.trainer import load_model
 import text2pose.utils as utils
 import text2pose.utils_visu as utils_visu
 
@@ -40,7 +40,7 @@ nb_cols = 4
 nb_rows = n_retrieve//nb_cols
 margin_img = 80
 
-device = 'cpu'
+device = 'cuda'
 batch_size = 32
 
 data_version = "posescript-A1" # to consider all available poses
@@ -55,6 +55,7 @@ def setup(model_path, split_for_research):
 
 	# load model
 	model, text_encoder_name = load_model(model_path, device)
+	model.to(device)
 	
 	# pre-compute pose features
 	dataset = PoseScript(version=data_version, split=split_for_research, text_encoder_name=text_encoder_name)
@@ -98,12 +99,14 @@ description = st.text_area("Pose description:",
 					placeholder="The person is...",
 					height=None, max_chars=None)
 
+# model.to(device)
+# body_model.to(device)
 # encode text
 with torch.no_grad():
-	text_feature = model.encode_raw_text(description)
+	text_feature = model.encode_raw_text(description).to(device)
 
 # rank poses by relevance and get their pose id
-scores = text_feature.view(1, -1).mm(poses_features.t())[0]
+scores = text_feature.view(1, -1).mm(poses_features.t().to(device))[0]
 _, indices_rank = scores.sort(descending=True)
 relevant_pose_ids = [dataIDs[i] for i in indices_rank[:n_retrieve]]
 

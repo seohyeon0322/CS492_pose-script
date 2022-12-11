@@ -1,0 +1,11 @@
+data/
+dataset_cache/
+experiments/
+src/text2pose.egg-info/
+mesh/
+human_body_prior/
+src/text2pose/__pycache__
+src/text2pose/.vector_cache
+src/text2pose/pyopengl
+tools/
+src/text2pose/mesa_19.3.3-0.deb

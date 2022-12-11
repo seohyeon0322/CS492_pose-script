@@ -66,8 +66,8 @@ args+=(--dataset $dataset)
 
 # utils
 model_dir_path=$(python option.py "${args[@]}")
-model_path="${model_dir_path}/checkpoint_$((${nb_epoch}-1)).pth" # used for evaluation
-
+# model_path="${model_dir_path}/checkpoint_$((${nb_epoch}-1)).pth" # used for evaluation
+model_path="${model_dir_path}/checkpoint_last.pth" # used for evaluation
 
 ###############################################################################
 # TRAIN
@@ -78,7 +78,7 @@ if [[ "$action" == *"train"* ]]; then
     bash retrieval/script_retrieval.sh -a "train-eval" -s "${run_id_seed}" -c "${fid}"
         
     echo "Now training the generative model."
-    python generative/train_generative.py --epochs ${nb_epoch} "${args[@]}" --fid $fid
+    python generative/our_train_eval_main.py --mode 'train' --epochs ${nb_epoch} "${args[@]}" --fid $fid
 
     # store the shortname and path to the retrieval model in config files
     echo "${config}    ${model_path}" >> shortname_2_model_path.txt
@@ -92,11 +92,11 @@ fi
 if [[ "$action" == *"eval"* ]]; then
 
     echo "Now computing the FID & ELBO metrics."
-    python generative/evaluate_generative.py --dataset $dataset \
+    python generative/our_train_eval_main.py --mode 'eval' --dataset $dataset \
     --model_path $model_path --fid $fid --split 'test'
 
     echo "Now generating pose samples."
-    python generative/generate_poses.py --model_path $model_path
+    python generative/our_generate_poses.py --model_path $model_path
 
     echo "Now computing the mRecall R/G metric (first training a retrieval model on the original poses, then evaluating it on the generated pose samples)."
     bash retrieval/script_retrieval.sh -a "train" -s "${run_id_seed}" -c "${ret_model_for_recall}"

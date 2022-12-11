@@ -16,9 +16,10 @@ from human_body_prior.body_model.body_model import BodyModel
 
 import text2pose.config as config
 from text2pose.vocab import Vocabulary # needed
-from text2pose.generative.evaluate_generative import load_model
+from text2pose.generative.trainer import load_model
 import text2pose.utils_visu as utils_visu
-
+# import os 
+# os.environ['PYOPENGL_PLATFORM'] = 'osmesa'
 
 parser = argparse.ArgumentParser(description='Parameters for the demo.')
 parser.add_argument('--model_path', type=str, help='Path to the model.')
@@ -36,7 +37,7 @@ nb_cols = 4
 nb_rows = n_generate//nb_cols
 margin_img = 80
 
-device = 'cpu'
+device = 'cuda'
 
 seed = 42
 torch.manual_seed(seed)
