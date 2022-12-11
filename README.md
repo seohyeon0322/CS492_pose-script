@@ -16,16 +16,8 @@ at the root directory.
 After setting python environment, downloading dataset is also required.
 Since dataset(AMASS, REPL, SMPL-H, GloVe pretrained words) are huge, it was impossible to upload at repo. Please follow above link to download.
 
-## To see our results
-If you want to see our results, you can run below commands in /posescript/src/text2pose.
-
-```
-  bash test_script.sh -c gen_glovebigru_vocA1H1_dataA1 (for A1)
-  bash test_script.sh -c gen_glovebigru_vocA1H1_dataH1 (for H1)
- ```
- 
-  
-We saved our results of final model so if you type the command, you can see the results we made.
+## To run models
+If you want to run models, please refer to readme files at /src/retrieval, /src/generative. They are readme files from original paper, and we use common commands with them. Please refer to shell files for further explanations.
 
 
 ## Extra Demo Results ##
