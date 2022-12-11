@@ -29,3 +29,16 @@ Retrieval model shows most relevant poses already in the dataset, and in contras
 
 ### Generative task
 <img src="https://user-images.githubusercontent.com/80833029/206895263-c38d1265-a7b0-45ee-83a2-e2585ce63530.gif">
+
+## Evaluation Results 
+In this section, we attached some real evaluation result captures.
+We are also surprised by our improvements..!
+- Best result of retrieval model
+<img src="https://user-images.githubusercontent.com/80833029/206905277-29937f5c-8035-46f6-8cef-08dfd2b776ff.png">
+
+- Best result of generative model
+<img src="https://user-images.githubusercontent.com/80833029/206905279-d128269d-9d3e-4c03-b310-0c9316e4e2e7.png">
+<img src="https://user-images.githubusercontent.com/80833029/206905282-129332c8-4a9f-4749-9c0c-68bbb9877028.png">
+<img src="https://user-images.githubusercontent.com/80833029/206905285-a46b7172-b423-49b9-ae5e-a4a4deaf854d.png">
+<img src="https://user-images.githubusercontent.com/80833029/206905288-a7332ac2-d1e3-4d39-84b8-b010bb0c76a5.png">
+
