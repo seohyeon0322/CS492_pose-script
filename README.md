@@ -13,5 +13,7 @@ By typing sentences that describes human pose, our models suggest conditioned hu
 Retrieval model shows most relevant poses already in the dataset, and in contrast generative model "makes" new poses that fit to the verbal condition we gave.
 
 ### Retrieval task
+<img src="https://user-images.githubusercontent.com/80833029/206890457-2f886d87-f5cb-427d-9b38-96ed17d942e2.gif">
+
 
 ### Generative task
