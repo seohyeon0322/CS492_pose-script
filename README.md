@@ -36,17 +36,17 @@ We are also surprised by our improvements..!
 ### Retrieval model's results from the baseline paper ###
 <img src="https://user-images.githubusercontent.com/80833029/206905756-63fc2fbc-2fd3-4ba5-9b36-808fa9606a7f.png">
 
-###Best result of retrieval model ###
+### Best result of retrieval model ###
 
 - trained on A1, tested on A1
 
 <img src="https://user-images.githubusercontent.com/80833029/206905277-29937f5c-8035-46f6-8cef-08dfd2b776ff.png">
 
--trained on A1, tested on H1
+- trained on A1, tested on H1
 
 <img src="https://user-images.githubusercontent.com/80833029/206905754-4d766e5d-85b9-4fe8-ad2b-1e7b7d22850e.png">
 
--trained on H1, tested on H1
+- trained on H1, tested on H1
 
 <img src="https://user-images.githubusercontent.com/80833029/206905752-db9b9054-9d7c-4742-91d9-cd47acbdf3f6.png">
 
