@@ -9,3 +9,9 @@ src/text2pose/.vector_cache
 src/text2pose/pyopengl
 tools/
 src/text2pose/mesa_19.3.3-0.deb
+*.i
+*.ii
+*.gpu
+*.ptx
+*.cubin
+*.fatbin
